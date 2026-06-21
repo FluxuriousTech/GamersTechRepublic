@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
-import { FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
+import { Mail, Phone, MapPin, MessageSquare, Globe } from "lucide-react";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
 
 export function Footer() {
   return (
@@ -39,34 +39,29 @@ export function Footer() {
             {/* Social Icons */}
             <div className="flex items-center gap-4">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/gamerstechrepublic"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded bg-white/5 flex items-center justify-center border border-white/5 hover:border-gtr-neon-red hover:text-gtr-neon-red transition-all duration-300"
+                aria-label="Instagram"
               >
                 <FaInstagram size={18} />
               </a>
               <a
-                href="https://youtube.com"
+                href="https://linktr.ee/gamerstechrepublic"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded bg-white/5 flex items-center justify-center border border-white/5 hover:border-gtr-neon-red hover:text-gtr-neon-red transition-all duration-300"
+                aria-label="Linktree Socials"
               >
-                <FaYoutube size={18} />
+                <Globe size={18} />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://wa.me/919920426377?text=Hi%20GTR,%20I'd%20like%20to%20ask%20about%20the%20gaming%20cafe%20slots%20and%20pricing."
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded bg-white/5 flex items-center justify-center border border-white/5 hover:border-gtr-neon-red hover:text-gtr-neon-red transition-all duration-300"
-              >
-                <FaTwitter size={18} />
-              </a>
-              <a
-                href="https://wa.me/917208409448"
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 rounded bg-white/5 flex items-center justify-center border border-white/5 hover:border-gtr-neon-red hover:text-gtr-neon-red transition-all duration-300"
+                aria-label="WhatsApp QA Chat"
               >
                 <MessageSquare size={18} />
               </a>
@@ -86,22 +81,12 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/leaderboards" className="text-sm text-gtr-off-white hover:text-white transition-colors">
-                  Competitive Leaderboards
-                </Link>
-              </li>
-              <li>
-                <Link href="/player-of-the-month" className="text-sm text-gtr-off-white hover:text-white transition-colors">
-                  Player of the Month
+                  Leaderboards & POTM
                 </Link>
               </li>
               <li>
                 <Link href="/pc-builds" className="text-sm text-gtr-off-white hover:text-white transition-colors">
                   Custom PC Builds
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery" className="text-sm text-gtr-off-white hover:text-white transition-colors">
-                  Media Gallery
                 </Link>
               </li>
             </ul>
@@ -116,16 +101,16 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-gtr-neon-red shrink-0 mt-0.5" />
                 <span className="text-sm text-gtr-off-white leading-relaxed">
-                  Shop 3-4, High Street Mall, Kapurbawdi, Thane, Maharashtra 400607
+                  703, C-1 Phase 4 Brahmand Opposite Orchids International School Azad Nagar Thane West 400607
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-gtr-neon-red shrink-0" />
-                <span className="text-sm text-gtr-off-white">+91 72084 09448</span>
+                <span className="text-sm text-gtr-off-white">+91 99204 26377</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-gtr-neon-red shrink-0" />
-                <span className="text-sm text-gtr-off-white">contact@gamerstech.in</span>
+                <span className="text-sm text-gtr-off-white">gamerstechrepublic@gmail.com</span>
               </li>
             </ul>
           </div>

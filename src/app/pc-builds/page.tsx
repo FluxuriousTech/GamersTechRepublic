@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Cpu, HardDrive, ShieldAlert, Check, ArrowRight, Layers } from "lucide-react";
+import Image from "next/image";
 import { FALLBACK_PC_BUILDS } from "@/data/fallback";
 
 const CATEGORIES = [
@@ -114,6 +115,22 @@ export default function PCBuildsPage() {
                       className="bg-gtr-charcoal border border-white/5 rounded-lg p-6 flex flex-col justify-between hover:border-gtr-neon-red/25 transition-colors relative overflow-hidden group"
                     >
                       <div className="space-y-4">
+                        {/* Image Box */}
+                        <div className="relative aspect-[16/10] w-full bg-black/40 rounded overflow-hidden border border-white/5 mb-4">
+                          {build.image ? (
+                            <Image
+                              src={build.image}
+                              alt={build.name}
+                              fill
+                              className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+                            />
+                          ) : (
+                            <div className="absolute inset-0 flex items-center justify-center text-[10px] font-orbitron text-white/20 uppercase tracking-widest">
+                              [ Build Preview ]
+                            </div>
+                          )}
+                        </div>
+
                         <div className="flex justify-between items-start gap-4">
                           <h3 className="font-orbitron font-black text-lg text-white uppercase group-hover:text-gtr-neon-red transition-colors">
                             {build.name}

@@ -38,7 +38,7 @@ export function CafeExperience() {
                 </div>
                 <div>
                   <span className="text-xs text-gtr-off-white block font-medium">Screens</span>
-                  <span className="text-sm font-bold text-white font-orbitron">360Hz Esports</span>
+                  <span className="text-sm font-bold text-white font-orbitron">240Hz Esports</span>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -47,7 +47,7 @@ export function CafeExperience() {
                 </div>
                 <div>
                   <span className="text-xs text-gtr-off-white block font-medium">Graphics</span>
-                  <span className="text-sm font-bold text-white font-orbitron">RTX 5090 VIP</span>
+                  <span className="text-sm font-bold text-white font-orbitron">RTX 5060 Esports</span>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -56,7 +56,7 @@ export function CafeExperience() {
                 </div>
                 <div>
                   <span className="text-xs text-gtr-off-white block font-medium">Zones</span>
-                  <span className="text-sm font-bold text-white font-orbitron">Esports Arena</span>
+                  <span className="text-sm font-bold text-white font-orbitron">Esports & Racing</span>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -102,9 +102,18 @@ export function CafeExperience() {
                   </div>
 
                   <div className="relative w-full h-full transform group-hover:scale-105 transition-transform duration-500 bg-gtr-gray">
-                    <div className="absolute inset-0 flex items-center justify-center text-xs text-white/20 font-orbitron">
-                      [ {item.title} ]
-                    </div>
+                    {item.image ? (
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center text-xs text-white/20 font-orbitron">
+                        [ {item.title} ]
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               ))}

@@ -8,9 +8,8 @@ import Image from "next/image";
 import { FALLBACK_GALLERY } from "@/data/fallback";
 
 const EQUIPMENT = [
-  { category: "VIP Stations", detail: "Intel Ultra 9, RTX 5090, 64GB DDR5, 4K OLED 240Hz screen" },
-  { category: "Pro Stations", detail: "Ryzen 7800X3D, RTX 5070 Ti, 32GB DDR5, 360Hz Esports screen" },
-  { category: "Sim Stations", detail: "Fanatec DD2 wheel, loadcell pedals, 4-axis motion rig, triple screen" },
+  { category: "Esports Stations", detail: "Ryzen 5 7600, RTX 5060 8GB, 16GB DDR5, 240Hz Esports screen" },
+  { category: "Sim Racing Stations", detail: "Fanatec DD2 wheel, loadcell pedals, 4-axis motion rig, triple screen" },
   { category: "Peripherals", detail: "Razer mechanical keyboards, Logitech G Pro superlight mice, Pro headsets" },
   { category: "Furniture", detail: "AutoFull mechanical ergonomic chairs, anti-fatigue layouts" },
   { category: "Connectivity", detail: "1 Gbps dual fiber ISP connection with local caching and backup routes" },
@@ -46,20 +45,22 @@ export default function CafePage() {
           {/* Section 1: Overview, Hours & Location */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-24">
             {/* Overview */}
-            <div className="lg:col-span-8 bg-gtr-charcoal border border-white/5 rounded-lg p-8 space-y-6">
-              <h2 className="font-orbitron font-black text-2xl text-white uppercase tracking-wider">
-                Arena details & Operations
-              </h2>
-              <p className="text-gtr-off-white text-sm leading-relaxed font-light">
-                GTR Thane features over 85+ high-end gaming stations divided into general esports zones, private team rooms, and dedicated direct drive Sim Racing rigs. Built for casual gaming sessions, LAN tournaments, bootcamps, and professional training.
-              </p>
+            <div className="lg:col-span-8 bg-gtr-charcoal border border-white/5 rounded-lg p-8 space-y-6 flex flex-col justify-between">
+              <div>
+                <h2 className="font-orbitron font-black text-2xl text-white uppercase tracking-wider mb-4">
+                  Arena details & Operations
+                </h2>
+                <p className="text-gtr-off-white text-sm leading-relaxed font-light">
+                  GTR Thane features high-end gaming stations divided into a general esports zone and dedicated direct drive Sim Racing rigs. Built for casual gaming sessions, LAN tournaments, bootcamps, and professional training.
+                </p>
+              </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-white/5">
                 <div className="flex gap-3 text-sm">
                   <MapPin className="text-gtr-neon-red shrink-0" size={20} />
                   <div>
                     <strong className="text-white block">Location</strong>
-                    <span className="text-gtr-off-white">Shop 3-4, High Street Mall, Kapurbawdi, Thane, Maharashtra</span>
+                    <span className="text-gtr-off-white">703, C-1 Phase 4 Brahmand Opposite Orchids International School Azad Nagar Thane West 400607</span>
                   </div>
                 </div>
                 <div className="flex gap-3 text-sm">
@@ -72,15 +73,37 @@ export default function CafePage() {
               </div>
             </div>
 
-            {/* Capacity Stats Card */}
-            <div className="lg:col-span-4 bg-gtr-neon-red/5 border border-gtr-neon-red/30 rounded-lg p-8 flex flex-col justify-center text-center space-y-4">
-              <span className="font-orbitron font-black text-6xl text-white text-glow">85+</span>
-              <h3 className="font-orbitron font-bold text-xs tracking-widest text-gtr-neon-red uppercase">
-                Active Gaming Stations
-              </h3>
-              <p className="text-xs text-gtr-off-white max-w-xs mx-auto leading-relaxed">
-                High-capacity LAN layout capable of hosting massive multiplayer lobbies and esports tournament qualifiers.
-              </p>
+            {/* Pricing & Slots Card */}
+            <div className="lg:col-span-4 bg-gtr-neon-red/5 border border-gtr-neon-red/30 rounded-lg p-8 flex flex-col justify-between text-center space-y-6">
+              <div className="space-y-4">
+                <h3 className="font-orbitron font-black text-xl text-white uppercase tracking-widest text-glow">
+                  Cafe Pricing
+                </h3>
+                <div className="w-16 h-[1px] bg-gtr-neon-red/30 mx-auto" />
+                
+                <div className="space-y-4 text-left pt-2">
+                  <div>
+                    <span className="font-orbitron font-bold text-[10px] text-gtr-neon-red uppercase tracking-wider block mb-1">Esports PC Zone</span>
+                    <span className="font-bold text-white text-base">₹70 / hour</span>
+                    <span className="text-xs text-gtr-off-white block mt-1">* Happy Hours (Working Days 10AM-2PM): <strong className="text-white font-semibold">₹50 / hr</strong></span>
+                    <span className="text-xs text-gtr-off-white block mt-0.5">* Happy Hours (Weekends & Holidays 10AM-2PM): <strong className="text-white font-semibold">₹60 / hr</strong></span>
+                  </div>
+                  <div className="pt-2">
+                    <span className="font-orbitron font-bold text-[10px] text-gtr-neon-red uppercase tracking-wider block mb-1">Sim Racing Zone</span>
+                    <span className="font-bold text-white text-base">₹150 / hour</span>
+                    <span className="text-xs text-gtr-off-white block mt-1">* Direct Drive Wheelbase, loadcell pedals, D-BOX motion rig</span>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="https://wa.me/919920426377?text=Hi%20GTR,%20I'd%20like%20to%20ask%20about%20the%20gaming%20cafe%20slots%20and%20pricing."
+                target="_blank"
+                rel="noreferrer"
+                className="w-full text-center py-3.5 rounded bg-gtr-neon-red hover:bg-gtr-neon-red/90 text-white font-orbitron font-bold text-xs tracking-widest uppercase transition-all duration-300 shadow-[0_0_15px_rgba(255,0,0,0.3)] hover:shadow-[0_0_25px_rgba(255,0,0,0.5)]"
+              >
+                Book Slot via WhatsApp
+              </a>
             </div>
           </div>
 
@@ -130,10 +153,18 @@ export default function CafePage() {
                   </div>
 
                   <div className="w-full h-full relative transform group-hover:scale-105 transition-transform duration-500 bg-gtr-gray">
-                    {/* Placeholder content text */}
-                    <div className="absolute inset-0 flex items-center justify-center text-[10px] font-orbitron text-white/10 uppercase tracking-widest">
-                      [ Media Preview ]
-                    </div>
+                    {item.image ? (
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center text-[10px] font-orbitron text-white/10 uppercase tracking-widest">
+                        [ Media Preview ]
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}

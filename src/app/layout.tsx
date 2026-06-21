@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Orbitron, Inter } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/providers/smooth-scroll";
+import { WhatsAppFloatingButton } from "@/components/layout/WhatsAppFloatingButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
     <html lang="en" className="dark h-full">
       <body className={`${inter.variable} ${orbitron.variable} antialiased min-h-full bg-black text-white flex flex-col`}>
         <SmoothScroll>{children}</SmoothScroll>
+        <WhatsAppFloatingButton />
       </body>
     </html>
   );

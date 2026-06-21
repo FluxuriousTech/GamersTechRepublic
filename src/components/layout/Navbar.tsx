@@ -11,10 +11,8 @@ const NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "Cafe", href: "/cafe" },
   { name: "Leaderboards", href: "/leaderboards" },
-  { name: "POTM", href: "/player-of-the-month" },
   { name: "News", href: "/news" },
   { name: "PC Builds", href: "/pc-builds" },
-  { name: "Gallery", href: "/gallery" },
   { name: "Contact", href: "/contact" },
 ];
 
