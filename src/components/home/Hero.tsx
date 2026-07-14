@@ -181,9 +181,6 @@ export function Hero() {
 
       {/* Subtle Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 hover:opacity-100 transition-opacity duration-300">
-        <span className="font-orbitron text-[10px] tracking-widest text-gtr-off-white uppercase">
-          Scroll Down
-        </span>
         <div className="w-[1px] h-12 bg-gradient-to-b from-gtr-neon-red to-transparent animate-bounce" />
       </div>
     </section>

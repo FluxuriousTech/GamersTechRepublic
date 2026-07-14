@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Volume2, VolumeX } from "lucide-react";
+import { Gamepad2, Volume2, VolumeX } from "lucide-react";
 
 const TRANSITION_VIDEO = "/page-loader.mp4";
 const TRANSITION_FALLBACK_MS = 5200;
@@ -14,9 +14,11 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const previousPathname = useRef(pathname);
   const isProgrammaticNavigation = useRef(false);
+  const audioUnlocked = useRef(false);
   const transitionTimer = useRef<number | null>(null);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [soundEnabled, setSoundEnabled] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(true);
+  const [awaitingAudioStart, setAwaitingAudioStart] = useState(false);
   const [logoFlight, setLogoFlight] = useState<{
     from: { x: number; y: number; width: number; height: number };
     to: { x: number; y: number; width: number; height: number };
@@ -55,6 +57,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
       clearTransitionTimer();
       setLogoFlight(null);
       setIsPlaying(true);
+      setAwaitingAudioStart(false);
       setSoundEnabled(withSound);
 
       const video = videoRef.current;
@@ -63,12 +66,17 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
         video.volume = 0.8;
         video.muted = !withSound;
 
-        void video.play().catch(() => {
-          // If a browser rejects audio playback, continue the transition muted.
-          video.muted = true;
-          setSoundEnabled(false);
-          void video.play().catch(finishTransition);
-        });
+        void video
+          .play()
+          .then(() => {
+            if (withSound) audioUnlocked.current = true;
+          })
+          .catch(() => {
+            // Navigation should never become stuck if the browser revokes audio.
+            video.muted = true;
+            setSoundEnabled(false);
+            void video.play().catch(finishTransition);
+          });
       }
 
       transitionTimer.current = window.setTimeout(finishTransition, TRANSITION_FALLBACK_MS);
@@ -85,17 +93,62 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
     video.volume = 0.8;
     setSoundEnabled(nextValue);
     if (nextValue) {
-      void video.play().catch(() => {
-        video.muted = true;
-        setSoundEnabled(false);
-      });
+      void video
+        .play()
+        .then(() => {
+          audioUnlocked.current = true;
+        })
+        .catch(() => {
+          video.muted = true;
+          setSoundEnabled(false);
+        });
     }
   };
 
+  const enterTheRepublic = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    clearTransitionTimer();
+    setAwaitingAudioStart(false);
+    setSoundEnabled(true);
+    video.currentTime = 0;
+    video.volume = 0.8;
+    video.muted = false;
+
+    void video
+      .play()
+      .then(() => {
+        audioUnlocked.current = true;
+        transitionTimer.current = window.setTimeout(finishTransition, TRANSITION_FALLBACK_MS);
+      })
+      .catch(() => setAwaitingAudioStart(true));
+  };
+
   useEffect(() => {
-    // The first visit autoplays muted; this guarantees completion if a browser
-    // throttles the media event while the tab is in the background.
-    transitionTimer.current = window.setTimeout(finishTransition, TRANSITION_FALLBACK_MS);
+    const video = videoRef.current;
+    if (!video) return clearTransitionTimer;
+
+    // Always attempt the first visit with sound. If browser autoplay policy
+    // rejects it, hold the opening frame for a deliberate gamer-style launch.
+    video.currentTime = 0;
+    video.volume = 0.8;
+    video.muted = false;
+    setSoundEnabled(true);
+
+    void video
+      .play()
+      .then(() => {
+        audioUnlocked.current = true;
+        transitionTimer.current = window.setTimeout(finishTransition, TRANSITION_FALLBACK_MS);
+      })
+      .catch(() => {
+        video.pause();
+        video.currentTime = 0;
+        clearTransitionTimer();
+        setAwaitingAudioStart(true);
+      });
+
     return clearTransitionTimer;
   }, [clearTransitionTimer, finishTransition]);
 
@@ -157,7 +210,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
     }
 
     // Browser back/forward has already changed the route, so play over the new page.
-    restartVideo(false);
+    restartVideo(audioUnlocked.current);
   }, [pathname, restartVideo]);
 
   return (
@@ -183,15 +236,42 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
           onError={finishTransition}
         />
 
-        <button
-          type="button"
-          onClick={toggleSound}
-          className="absolute bottom-6 right-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/60 px-4 py-2.5 text-xs font-semibold text-white backdrop-blur transition hover:border-gtr-neon-red"
-          aria-label={soundEnabled ? "Mute transition sound" : "Enable transition sound"}
-        >
-          {soundEnabled ? <Volume2 size={17} /> : <VolumeX size={17} />}
-          {soundEnabled ? "Sound on" : "Enable sound"}
-        </button>
+        {awaitingAudioStart ? (
+          <div className="absolute inset-0 flex items-center justify-center bg-black/70 p-6 backdrop-blur-md">
+            <div className="flex flex-col items-center text-center">
+              <div className="relative mb-8">
+                <div className="absolute inset-6 rounded-full bg-gtr-neon-red/20 blur-3xl" />
+                <img
+                  src="/gamerstechrepublic-hero-logo.png"
+                  alt="GamersTechRepublic"
+                  className="relative h-auto w-44 object-contain drop-shadow-[0_0_24px_rgba(255,0,0,0.28)] sm:w-56"
+                />
+              </div>
+              <span className="mb-3 font-orbitron text-[9px] font-bold uppercase tracking-[0.35em] text-gtr-off-white/70">
+                Access Portal Ready
+              </span>
+              <button
+                type="button"
+                onClick={enterTheRepublic}
+                className="group relative inline-flex items-center gap-3 overflow-hidden rounded border border-gtr-neon-red bg-black/85 px-8 py-5 font-orbitron text-xs font-black uppercase tracking-[0.2em] text-white shadow-[0_0_35px_rgba(255,0,0,0.4)] transition duration-300 hover:bg-gtr-neon-red hover:shadow-[0_0_55px_rgba(255,0,0,0.65)]"
+              >
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                <Gamepad2 size={21} className="relative" />
+                <span className="relative">Enter The Republic</span>
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={toggleSound}
+            className="absolute bottom-6 right-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/60 px-4 py-2.5 text-xs font-semibold text-white backdrop-blur transition hover:border-gtr-neon-red"
+            aria-label={soundEnabled ? "Mute transition sound" : "Enable transition sound"}
+          >
+            {soundEnabled ? <Volume2 size={17} /> : <VolumeX size={17} />}
+            {soundEnabled ? "Sound on" : "Sound off"}
+          </button>
+        )}
         <span className="sr-only">Loading GamersTechRepublic</span>
       </div>
 
