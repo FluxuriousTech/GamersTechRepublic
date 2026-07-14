@@ -128,13 +128,13 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="relative mx-auto h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48"
+          className="relative mx-auto h-44 w-44 sm:h-56 sm:w-56 md:h-72 md:w-72"
         >
           <Image
             src="/gamerstechrepublic-hero-logo.png"
             alt="GamersTechRepublic"
             fill
-            sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
+            sizes="(max-width: 640px) 176px, (max-width: 768px) 224px, 288px"
             priority
             className="object-contain drop-shadow-[0_0_35px_rgba(255,0,0,0.35)]"
           />

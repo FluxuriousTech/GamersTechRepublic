@@ -129,27 +129,39 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
     const video = videoRef.current;
     if (!video) return clearTransitionTimer;
 
+    let audioAttemptTimer: number | null = null;
+    const showEntryPortal = () => {
+      if (!video.paused && video.currentTime > 0.05) return;
+      video.pause();
+      video.currentTime = 0;
+      clearTransitionTimer();
+      setAwaitingAudioStart(true);
+    };
+
     // Always attempt the first visit with sound. If browser autoplay policy
     // rejects it, hold the opening frame for a deliberate gamer-style launch.
     video.currentTime = 0;
     video.volume = 0.8;
     video.muted = false;
     setSoundEnabled(true);
+    audioAttemptTimer = window.setTimeout(showEntryPortal, 900);
 
     void video
       .play()
       .then(() => {
+        if (audioAttemptTimer !== null) window.clearTimeout(audioAttemptTimer);
         audioUnlocked.current = true;
         transitionTimer.current = window.setTimeout(finishTransition, TRANSITION_FALLBACK_MS);
       })
       .catch(() => {
-        video.pause();
-        video.currentTime = 0;
-        clearTransitionTimer();
-        setAwaitingAudioStart(true);
+        if (audioAttemptTimer !== null) window.clearTimeout(audioAttemptTimer);
+        showEntryPortal();
       });
 
-    return clearTransitionTimer;
+    return () => {
+      if (audioAttemptTimer !== null) window.clearTimeout(audioAttemptTimer);
+      clearTransitionTimer();
+    };
   }, [clearTransitionTimer, finishTransition]);
 
   useEffect(() => {
@@ -226,7 +238,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
       >
         <video
           ref={videoRef}
-          className="h-full w-full object-cover"
+          className="h-full w-full bg-black object-contain md:object-cover"
           src={TRANSITION_VIDEO}
           autoPlay
           muted={!soundEnabled}
