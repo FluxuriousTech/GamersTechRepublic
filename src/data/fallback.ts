@@ -80,12 +80,12 @@ export interface Sponsor {
 export const FALLBACK_NEWS: NewsArticle[] = [
   {
     _id: "news-1",
-    title: "GTR Sim Racing League: Season 4 Registrations Open",
+    title: "GamersTechRepublic Sim Racing League: Season 4 Registrations Open",
     slug: { current: "gtr-sim-racing-league-season-4" },
     category: "Sim Racing",
     publishedAt: "2026-06-15T10:00:00Z",
     excerpt: "Get ready to burn rubber on our professional triple-monitor simulators. Registrations for Season 4 are now live with a prize pool of 1.5 Lakhs.",
-    body: "The premium simulator experience at GTR Thane gets even more competitive. Register with your team or as a solo racer. Top racers win exclusive GTR merchandise and custom PC peripherals.",
+    body: "The premium simulator experience at GamersTechRepublic Thane gets even more competitive. Register with your team or as a solo racer. Top racers win exclusive GamersTechRepublic merchandise and custom PC peripherals.",
     featured: true,
     trending: true,
     image: "/images/sim-racing-news.jpg",
@@ -96,7 +96,7 @@ export const FALLBACK_NEWS: NewsArticle[] = [
     slug: { current: "rtx-5090-rig-showcase-experience" },
     category: "PC Hardware",
     publishedAt: "2026-06-12T14:30:00Z",
-    excerpt: "GTR becomes the first gaming cafe in Maharashtra to house the beastly RTX 5090. Book your premium slot now and feel the speed.",
+    excerpt: "GamersTechRepublic becomes the first gaming cafe in Maharashtra to house the beastly RTX 5090. Book your premium slot now and feel the speed.",
     body: "We have upgraded our VIP zone with custom liquid-cooled rigs powered by the NVIDIA RTX 5090 and Intel Core Ultra 9. Prepare for buttery smooth 360Hz esports gaming.",
     featured: false,
     trending: true,
@@ -108,7 +108,7 @@ export const FALLBACK_NEWS: NewsArticle[] = [
     slug: { current: "valorant-community-cup-champions" },
     category: "Valorant",
     publishedAt: "2026-06-10T18:00:00Z",
-    excerpt: "A thrilling grand finale concluded last night at GTR Cafe. Check out the tournament highlights and the MVP performance.",
+    excerpt: "A thrilling grand finale concluded last night at GamersTechRepublic Cafe. Check out the tournament highlights and the MVP performance.",
     body: "Team 'Thane Overlords' secured their title victory in a nail-biting 3-2 match against 'Mumbai Titans'. With over 150 live spectators, it was our biggest Valorant event yet.",
     featured: false,
     trending: false,
@@ -116,7 +116,7 @@ export const FALLBACK_NEWS: NewsArticle[] = [
   },
   {
     _id: "news-4",
-    title: "CS2 Indian Championship Qualifiers: GTR Thane LAN Event",
+    title: "CS2 Indian Championship Qualifiers: GamersTechRepublic Thane LAN Event",
     slug: { current: "cs2-indian-championship-qualifiers-lan" },
     category: "CS2",
     publishedAt: "2026-06-08T09:00:00Z",
@@ -131,7 +131,7 @@ export const FALLBACK_NEWS: NewsArticle[] = [
 export const FALLBACK_PC_BUILDS: PCBuild[] = [
   {
     _id: "build-1",
-    name: "GTR Vanguard Elite",
+    name: "GamersTechRepublic Vanguard Elite",
     slug: { current: "gtr-vanguard-elite" },
     priceCategory: "under-1l",
     price: 85000,
@@ -147,7 +147,7 @@ export const FALLBACK_PC_BUILDS: PCBuild[] = [
   },
   {
     _id: "build-2",
-    name: "GTR Overlord V2",
+    name: "GamersTechRepublic Overlord V2",
     slug: { current: "gtr-overlord-v2" },
     priceCategory: "1l-2l",
     price: 175000,
@@ -163,7 +163,7 @@ export const FALLBACK_PC_BUILDS: PCBuild[] = [
   },
   {
     _id: "build-3",
-    name: "GTR Apex Titan",
+    name: "GamersTechRepublic Apex Titan",
     slug: { current: "gtr-apex-titan" },
     priceCategory: "4l-6l",
     price: 480000,
@@ -345,14 +345,14 @@ export const FALLBACK_TESTIMONIALS: Testimonial[] = [
     _id: "t-1",
     name: "Rohan Shinde",
     role: "Semi-Pro Valorant Player",
-    feedback: "The low latency fibers and 360Hz monitors here are game-changers. GTR Thane is the only place in Maharashtra that offers true esports grade setups.",
+    feedback: "The low latency fibers and 360Hz monitors here are game-changers. GamersTechRepublic Thane is the only place in Maharashtra that offers true esports grade setups.",
     rating: 5,
   },
   {
     _id: "t-2",
     name: "Aditi Kulkarni",
     role: "Sim Racer & Content Creator",
-    feedback: "The triple OLED direct drive simulators at GTR are as close to real racing as it gets. Unmatched torque force feedback and visual immersion.",
+    feedback: "The triple OLED direct drive simulators at GamersTechRepublic are as close to real racing as it gets. Unmatched torque force feedback and visual immersion.",
     rating: 5,
   },
   {

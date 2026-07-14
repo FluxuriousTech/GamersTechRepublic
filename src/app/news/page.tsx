@@ -41,7 +41,7 @@ export default function NewsPage() {
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="font-orbitron font-bold text-xs tracking-[0.2em] text-gtr-neon-red uppercase">
-              GTR Chronicles
+              GamersTechRepublic Chronicles
             </span>
             <h1 className="font-orbitron font-black text-4xl sm:text-6xl text-white uppercase tracking-tight">
               News & <span className="text-gtr-neon-red text-glow">Updates</span>

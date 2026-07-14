@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, MessageSquare, Globe } from "lucide-react";
-import { FaInstagram, FaYoutube } from "react-icons/fa";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { SiLinktree } from "react-icons/si";
 
 export function Footer() {
   return (
@@ -19,14 +20,14 @@ export function Footer() {
               <div className="relative w-12 h-12 overflow-hidden rounded-md border border-gtr-neon-red/30">
                 <Image
                   src="/GTR Logo png.png"
-                  alt="GTR Logo"
+                  alt="GamersTechRepublic Logo"
                   fill
                   className="object-contain p-1"
                 />
               </div>
               <div className="flex flex-col">
                 <span className="font-orbitron font-black text-xl tracking-wider text-white">
-                  GTR
+                  GamersTechRepublic
                 </span>
                 <span className="text-[10px] tracking-[0.2em] font-medium text-gtr-off-white uppercase -mt-1">
                   Esports Cafe
@@ -36,34 +37,47 @@ export function Footer() {
             <p className="text-sm text-gtr-off-white leading-relaxed">
               Thane's ultimate gaming destination. Powered by bleeding-edge hardware, hyper-fast connections, and a passion for competitive esports.
             </p>
-            {/* Social Icons */}
-            <div className="flex items-center gap-4">
+            {/* Official Social Links */}
+            <div className="space-y-2">
               <a
                 href="https://instagram.com/gamerstechrepublic"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded bg-white/5 flex items-center justify-center border border-white/5 hover:border-gtr-neon-red hover:text-gtr-neon-red transition-all duration-300"
-                aria-label="Instagram"
+                className="flex items-center gap-3 rounded border border-white/5 bg-white/5 p-3 text-gtr-off-white transition hover:border-gtr-neon-red/40 hover:text-white"
+                aria-label="Cafe Instagram @gamerstechrepublic"
               >
-                <FaInstagram size={18} />
+                <FaInstagram size={18} className="shrink-0 text-gtr-neon-red" />
+                <span><strong className="block text-[10px] uppercase tracking-wider text-white">Cafe Instagram</strong><span className="text-[11px]">@gamerstechrepublic</span></span>
+              </a>
+              <a
+                href="https://www.instagram.com/gtrpcbuilds?igsh=OXByam1janU2a2M1"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 rounded border border-white/5 bg-white/5 p-3 text-gtr-off-white transition hover:border-gtr-neon-red/40 hover:text-white"
+                aria-label="PC Builds Instagram @gtrpcbuilds"
+              >
+                <FaInstagram size={18} className="shrink-0 text-gtr-neon-red" />
+                <span><strong className="block text-[10px] uppercase tracking-wider text-white">PC Builds Instagram</strong><span className="text-[11px]">@gtrpcbuilds</span></span>
               </a>
               <a
                 href="https://linktr.ee/gamerstechrepublic"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded bg-white/5 flex items-center justify-center border border-white/5 hover:border-gtr-neon-red hover:text-gtr-neon-red transition-all duration-300"
+                className="flex items-center gap-3 rounded border border-white/5 bg-white/5 p-3 text-gtr-off-white transition hover:border-gtr-neon-red/40 hover:text-white"
                 aria-label="Linktree Socials"
               >
-                <Globe size={18} />
+                <SiLinktree size={18} className="shrink-0 text-[#43E660]" />
+                <span><strong className="block text-[10px] uppercase tracking-wider text-white">All Social Links</strong><span className="text-[11px]">GamersTechRepublic Linktree</span></span>
               </a>
               <a
-                href="https://wa.me/919920426377?text=Hi%20GTR,%20I'd%20like%20to%20ask%20about%20the%20gaming%20cafe%20slots%20and%20pricing."
+                href="https://wa.me/919920426377?text=Hi%20GamersTechRepublic,%20I'd%20like%20to%20ask%20about%20the%20gaming%20cafe%20slots%20and%20pricing."
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded bg-white/5 flex items-center justify-center border border-white/5 hover:border-gtr-neon-red hover:text-gtr-neon-red transition-all duration-300"
-                aria-label="WhatsApp QA Chat"
+                className="flex items-center gap-3 rounded border border-white/5 bg-white/5 p-3 text-gtr-off-white transition hover:border-[#25D366]/50 hover:text-white"
+                aria-label="WhatsApp Cafe Chat"
               >
-                <MessageSquare size={18} />
+                <FaWhatsapp size={19} className="shrink-0 text-[#25D366]" />
+                <span><strong className="block text-[10px] uppercase tracking-wider text-white">WhatsApp</strong><span className="text-[11px]">Cafe bookings & enquiries</span></span>
               </a>
             </div>
           </div>
@@ -122,15 +136,8 @@ export function Footer() {
             </h4>
             <ul className="space-y-3">
               <li className="flex justify-between text-sm">
-                <span className="text-gtr-off-white">Monday - Friday</span>
-                <span className="text-white font-medium">10:00 AM - 11:00 PM</span>
-              </li>
-              <li className="flex justify-between text-sm">
-                <span className="text-gtr-off-white">Saturday - Sunday</span>
-                <span className="text-white font-medium">09:00 AM - 01:00 AM</span>
-              </li>
-              <li className="pt-2 text-[11px] text-gtr-neon-red/80 font-medium tracking-wide">
-                * Night LAN events require advance VIP slots booking.
+                <span className="text-gtr-off-white">Monday - Sunday</span>
+                <span className="text-white font-medium">10:00 AM - 10:00 PM</span>
               </li>
             </ul>
           </div>
@@ -139,7 +146,7 @@ export function Footer() {
         {/* Footer Bottom */}
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gtr-off-white">
-            &copy; {new Date().getFullYear()} GamersTech Republic. All rights reserved.
+            &copy; {new Date().getFullYear()} GamersTechRepublic. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-xs text-gtr-off-white hover:text-white transition-colors">

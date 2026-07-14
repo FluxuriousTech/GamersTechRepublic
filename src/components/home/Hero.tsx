@@ -120,8 +120,24 @@ export function Hero() {
         >
           <span className="w-2 h-2 rounded-full bg-gtr-neon-red animate-pulse shadow-[0_0_8px_#ff0000]" />
           <span className="font-orbitron text-[10px] font-bold tracking-[0.2em] text-white uppercase">
-            Maharashtra's Premier Gaming Arena
+            Thane&apos;s Premier Gaming Arena
           </span>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="relative mx-auto h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48"
+        >
+          <Image
+            src="/gamerstechrepublic-hero-logo.png"
+            alt="GamersTechRepublic"
+            fill
+            sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
+            priority
+            className="object-contain drop-shadow-[0_0_35px_rgba(255,0,0,0.35)]"
+          />
         </motion.div>
 
         {/* Headlines */}
@@ -130,7 +146,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-orbitron font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white leading-none uppercase"
+            className="font-orbitron font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-white leading-tight uppercase"
           >
             Gaming For The People, <br className="hidden md:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gtr-neon-red via-red-500 to-gtr-crimson text-glow">
@@ -138,14 +154,6 @@ export function Hero() {
             </span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-inter text-base sm:text-xl md:text-2xl text-gtr-off-white font-light max-w-2xl mx-auto tracking-wide"
-          >
-            Thane's Premium Esports Gaming Cafe
-          </motion.p>
         </div>
 
         {/* Action Buttons */}

@@ -1,12 +1,12 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
 
 export function WhatsAppFloatingButton() {
   return (
     <motion.a
-      href="https://wa.me/919920426377?text=Hi%20GTR,%20I'd%20like%20to%20ask%20about%20the%20gaming%20cafe%20setups%20and%20pricing."
+      href="https://wa.me/919920426377?text=Hi%20GamersTechRepublic,%20I'd%20like%20to%20ask%20about%20the%20gaming%20cafe%20setups%20and%20pricing."
       target="_blank"
       rel="noreferrer"
       initial={{ opacity: 0, scale: 0.8 }}
@@ -25,7 +25,7 @@ export function WhatsAppFloatingButton() {
       {/* Ripple Rings */}
       <span className="absolute inset-0 rounded-full border-2 border-[#25D366] animate-ping opacity-25 pointer-events-none" />
 
-      <MessageCircle size={26} className="fill-white text-white transform group-hover:rotate-12 transition-transform duration-300" />
+      <FaWhatsapp size={28} className="text-white transform group-hover:rotate-12 transition-transform duration-300" />
     </motion.a>
   );
 }

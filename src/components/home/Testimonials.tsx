@@ -22,7 +22,7 @@ export function Testimonials() {
           </h2>
           <div className="w-16 h-[2px] bg-gtr-neon-red mx-auto shadow-[0_0_8px_#ff0000]" />
           <p className="text-gtr-off-white text-sm sm:text-base font-light">
-            Check out what Thane's competitive gaming community and our build clients have to say about GTR.
+            Check out what Thane's competitive gaming community and our build clients have to say about GamersTechRepublic.
           </p>
         </div>
 

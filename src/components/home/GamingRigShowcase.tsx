@@ -47,10 +47,10 @@ export function GamingRigShowcase() {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
           <span className="font-orbitron font-bold text-[10px] tracking-[0.2em] text-gtr-neon-red uppercase">
-            Bleeding-Edge Hardware
+            Reserve Your Station
           </span>
           <h2 className="font-orbitron font-black text-3xl sm:text-4xl text-white uppercase tracking-tight">
-            Gaming <span className="text-gtr-neon-red">Rig Showcase</span>
+            Cafe <span className="text-gtr-neon-red">Booking</span>
           </h2>
           <div className="w-16 h-[2px] bg-gtr-neon-red mx-auto shadow-[0_0_8px_#ff0000]" />
           <p className="text-gtr-off-white text-sm sm:text-base font-light">
@@ -143,7 +143,7 @@ export function GamingRigShowcase() {
                   )}
                 </div>
                 <a
-                  href={`https://wa.me/919920426377?text=Hi%20GTR,%20I'd%20like%20to%20book%20a%20slot%20for%20the%20${encodeURIComponent(tier.tier)}.`}
+                  href={`https://wa.me/919920426377?text=Hi%20GamersTechRepublic,%20I'd%20like%20to%20book%20a%20slot%20for%20the%20${encodeURIComponent(tier.tier)}.`}
                   target="_blank"
                   rel="noreferrer"
                   className={`flex items-center justify-center gap-1.5 font-orbitron font-bold text-xs tracking-wider uppercase transition-all duration-300 px-5 py-3 rounded bg-gtr-neon-red/10 border border-gtr-neon-red/30 ${

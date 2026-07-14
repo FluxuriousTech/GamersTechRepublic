@@ -114,7 +114,7 @@ export function FeaturedPCBuild() {
                 href={`/contact?enquiry=pcbuild&build=${build.slug.current}`}
                 className="w-full sm:w-auto text-center px-8 py-4 rounded bg-gtr-neon-red text-white font-orbitron font-bold text-xs tracking-widest uppercase transition-all duration-300 shadow-[0_0_20px_rgba(255,0,0,0.3)] hover:shadow-[0_0_30px_rgba(255,0,0,0.5)]"
               >
-                Request This Build
+                Enquire About This Build
               </Link>
               <Link
                 href="/pc-builds"

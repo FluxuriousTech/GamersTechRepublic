@@ -41,10 +41,10 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 overflow-hidden rounded-md border border-gtr-neon-red/30 group-hover:border-gtr-neon-red transition-colors duration-300">
+            <div data-brand-logo className="relative w-10 h-10 overflow-hidden rounded-md border border-gtr-neon-red/30 group-hover:border-gtr-neon-red transition-colors duration-300">
               <Image
                 src="/GTR Logo png.png"
-                alt="GTR Logo"
+                alt="GamersTechRepublic Logo"
                 fill
                 className="object-contain p-1"
                 priority
@@ -52,7 +52,7 @@ export function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="font-orbitron font-black text-lg tracking-wider text-white group-hover:text-gtr-neon-red transition-colors duration-300">
-                GTR
+                GamersTechRepublic
               </span>
               <span className="text-[10px] tracking-[0.2em] font-medium text-gtr-off-white uppercase -mt-1">
                 Esports Cafe

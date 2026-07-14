@@ -3,9 +3,17 @@
 import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { MessageSquare, Mail, MapPin, Phone, Send, ArrowRight } from "lucide-react";
+import { ExternalLink, Mail, MapPin, Send } from "lucide-react";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { SiLinktree } from "react-icons/si";
 
 export default function ContactPage() {
+  const cafeAddress =
+    "703 C-1, Brahmand Phase 4, opposite Orchids International School, Brahmand, Azad Nagar, Thane, Maharashtra 400607";
+  const encodedCafeAddress = encodeURIComponent(`Gamers Tech Republic, ${cafeAddress}`);
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedCafeAddress}`;
+  const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodedCafeAddress}&output=embed`;
+
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -46,11 +54,14 @@ export default function ContactPage() {
               Establish Connection
             </span>
             <h1 className="font-orbitron font-black text-4xl sm:text-6xl text-white uppercase tracking-tight">
-              Contact <span className="text-gtr-neon-red text-glow">The Arena</span>
+              Contact <span className="text-gtr-neon-red text-glow">The Cafe</span>
             </h1>
             <div className="w-16 h-[2px] bg-gtr-neon-red mx-auto shadow-[0_0_8px_#ff0000]" />
             <p className="text-gtr-off-white text-sm sm:text-base font-light">
-              Connect with our arena booking desks, partner sponsorship team, custom PC specialists, or apply for open career roles at Brahmand.
+              At Gamers Tech Republic
+            </p>
+            <p className="text-gtr-off-white text-sm sm:text-base font-light">
+              Connect with Mission Control, partner sponsorship team, custom PC specialists, or apply for open career roles at Brahmand.
             </p>
           </div>
 
@@ -61,66 +72,63 @@ export default function ContactPage() {
               
               <div className="bg-gtr-charcoal border border-white/5 rounded-lg p-6 lg:p-8 space-y-6">
                 <h3 className="font-orbitron font-black text-xl text-white uppercase tracking-tight border-l-2 border-gtr-neon-red pl-3">
-                  Direct Lines
+                  Contact &amp; Official Socials
                 </h3>
-
-                <div className="space-y-4">
-                  <a
-                    href="https://wa.me/919920426377?text=Hi%20GTR,%20I'd%20like%20to%20ask%20about%20the%20gaming%20cafe%20slots%20and%20pricing."
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-4 p-4 rounded bg-black/40 border border-white/5 hover:border-gtr-neon-red/30 transition-colors group"
-                  >
-                    <div className="w-10 h-10 rounded bg-gtr-neon-red/10 flex items-center justify-center text-gtr-neon-red">
-                      <MessageSquare size={18} />
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-gtr-off-white block uppercase tracking-wider">WhatsApp chat</span>
-                      <span className="text-sm font-bold text-white group-hover:text-gtr-neon-red transition-colors">+91 99204 26377</span>
-                    </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <a href="https://www.instagram.com/gamerstechrepublic" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded border border-white/5 bg-black/40 p-4 text-gtr-off-white transition hover:border-gtr-neon-red/30 hover:text-white">
+                    <FaInstagram className="text-gtr-neon-red" size={20} />
+                    <span><strong className="block text-xs text-white">Cafe Instagram</strong><span className="text-[10px]">@gamerstechrepublic</span></span>
                   </a>
-
-                  <a
-                    href="mailto:gamerstechrepublic@gmail.com"
-                    className="flex items-center gap-4 p-4 rounded bg-black/40 border border-white/5 hover:border-gtr-neon-red/30 transition-colors group"
-                  >
-                    <div className="w-10 h-10 rounded bg-gtr-neon-red/10 flex items-center justify-center text-gtr-neon-red">
-                      <Mail size={18} />
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-gtr-off-white block uppercase tracking-wider">Email desk</span>
-                      <span className="text-sm font-bold text-white group-hover:text-gtr-neon-red transition-colors">gamerstechrepublic@gmail.com</span>
-                    </div>
+                  <a href="https://www.instagram.com/gtrpcbuilds?igsh=OXByam1janU2a2M1" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded border border-white/5 bg-black/40 p-4 text-gtr-off-white transition hover:border-gtr-neon-red/30 hover:text-white">
+                    <FaInstagram className="text-gtr-neon-red" size={20} />
+                    <span><strong className="block text-xs text-white">PC Builds Instagram</strong><span className="text-[10px]">@gtrpcbuilds</span></span>
                   </a>
-
-                  <div className="flex items-center gap-4 p-4 rounded bg-black/40 border border-white/5">
-                    <div className="w-10 h-10 rounded bg-gtr-neon-red/10 flex items-center justify-center text-gtr-neon-red">
-                      <Phone size={18} />
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-gtr-off-white block uppercase tracking-wider">Contact number</span>
-                      <span className="text-sm font-bold text-white">+91 99204 26377</span>
-                    </div>
-                  </div>
+                  <a href="https://linktr.ee/gamerstechrepublic" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded border border-white/5 bg-black/40 p-4 text-gtr-off-white transition hover:border-[#43E660]/40 hover:text-white">
+                    <SiLinktree className="text-[#43E660]" size={20} />
+                    <span><strong className="block text-xs text-white">Linktree</strong><span className="text-[10px]">All official links</span></span>
+                  </a>
+                  <a href="https://wa.me/919920426377" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded border border-white/5 bg-black/40 p-4 text-gtr-off-white transition hover:border-gtr-neon-red/30 hover:text-white">
+                    <FaWhatsapp className="text-[#25D366]" size={20} />
+                    <span><strong className="block text-xs text-white">WhatsApp / Contact</strong><span className="text-[10px]">+91 99204 26377</span></span>
+                  </a>
+                  <a href="mailto:gamerstechrepublic@gmail.com" className="flex items-center gap-3 rounded border border-white/5 bg-black/40 p-4 text-gtr-off-white transition hover:border-gtr-neon-red/30 hover:text-white">
+                    <Mail className="text-gtr-neon-red" size={20} />
+                    <span><strong className="block text-xs text-white">Email</strong><span className="text-[10px]">gamerstechrepublic@gmail.com</span></span>
+                  </a>
                 </div>
               </div>
 
-              {/* Maps Placeholder Graphic */}
+              {/* Google Maps location */}
               <div className="bg-gtr-charcoal border border-white/5 rounded-lg p-6 lg:p-8 space-y-4">
                 <h3 className="font-orbitron font-black text-xl text-white uppercase tracking-tight border-l-2 border-gtr-neon-red pl-3">
                   Location Map
                 </h3>
-                <div className="aspect-video bg-black/60 rounded border border-white/10 flex flex-col items-center justify-center text-center p-6 relative overflow-hidden group">
-                  <MapPin size={24} className="text-gtr-neon-red animate-bounce mb-2" />
-                  <span className="font-orbitron font-bold text-sm text-white uppercase">
-                    Brahmand Azad Nagar
-                  </span>
-                  <span className="text-[11px] text-gtr-off-white max-w-xs mt-1">
-                    703, C-1 Phase 4 Brahmand Opposite Orchids International School Azad Nagar Thane West 400607
-                  </span>
-                  {/* Neon frame lines */}
-                  <div className="absolute inset-2 border border-dashed border-white/5 rounded pointer-events-none group-hover:border-gtr-neon-red/25 transition-colors" />
+                <div className="aspect-video overflow-hidden rounded border border-white/10 bg-black/60">
+                  <iframe
+                    src={googleMapsEmbedUrl}
+                    title="Gamers Tech Republic location on Google Maps"
+                    className="h-full w-full border-0"
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
                 </div>
+                <div className="flex items-start gap-3 rounded border border-white/5 bg-black/40 p-4">
+                  <MapPin size={20} className="mt-0.5 shrink-0 text-gtr-neon-red" />
+                  <div>
+                    <strong className="font-orbitron text-xs uppercase text-white">Gamers Tech Republic</strong>
+                    <p className="mt-1 text-[11px] leading-relaxed text-gtr-off-white">{cafeAddress}</p>
+                  </div>
+                </div>
+                <a
+                  href={googleMapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-no-page-transition="true"
+                  className="flex w-full items-center justify-center gap-2 rounded bg-gtr-neon-red px-4 py-3 font-orbitron text-xs font-bold uppercase tracking-wider text-white transition hover:shadow-[0_0_20px_rgba(255,0,0,0.45)]"
+                >
+                  Open in Google Maps <ExternalLink size={14} />
+                </a>
               </div>
 
             </div>
@@ -174,7 +182,7 @@ export default function ContactPage() {
                     className="w-full bg-black/60 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-gtr-neon-red/60 font-semibold"
                   >
                     <option value="general">General Contact / booking slots</option>
-                    <option value="pcbuild">Request Custom PC Build</option>
+                    <option value="pcbuild">Enquire About a Custom PC Build</option>
                     <option value="partnership">Sponsorship / Partner enquiry</option>
                     <option value="career">Career Application</option>
                   </select>

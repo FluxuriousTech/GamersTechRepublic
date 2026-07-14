@@ -7,7 +7,7 @@ import { ArrowRight, Monitor, Cpu, Trophy, Clock } from "lucide-react";
 import { FALLBACK_GALLERY } from "@/data/fallback";
 
 export function CafeExperience() {
-  const images = FALLBACK_GALLERY.slice(0, 4);
+  const images = FALLBACK_GALLERY.slice(1, 4);
 
   return (
     <section className="py-24 bg-gtr-charcoal border-y border-white/5 relative overflow-hidden">
@@ -91,7 +91,7 @@ export function CafeExperience() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className={`relative aspect-video rounded overflow-hidden border border-white/5 group ${
-                    idx === 0 || idx === 3 ? "col-span-2 aspect-[21/9]" : ""
+                    idx === 2 ? "col-span-2 aspect-[21/9]" : ""
                   }`}
                 >
                   <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-transparent transition-colors duration-300" />

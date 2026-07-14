@@ -3,7 +3,6 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
 import { NewsTicker } from "@/components/home/NewsTicker";
 import { CommunityStats } from "@/components/home/Stats";
-import { PlayerOfMonthShowcase } from "@/components/home/PlayerOfMonthShowcase";
 import { LeaderboardPreview } from "@/components/home/LeaderboardPreview";
 import { CafeExperience } from "@/components/home/CafeExperience";
 import { GamingRigShowcase } from "@/components/home/GamingRigShowcase";
@@ -21,7 +20,6 @@ export default function Home() {
         <Hero />
         <NewsTicker />
         <CommunityStats />
-        <PlayerOfMonthShowcase />
         <LeaderboardPreview />
         <CafeExperience />
         <GamingRigShowcase />
